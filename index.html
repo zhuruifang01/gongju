@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音达科技--工具汇总</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=uIGNq6dLthEQ5iM5G8mNfCl1BDDfWx9d"></script>
+    <style>
+        body,html{width:100%;height:100%;background:#f5f6f5;margin:0;padding:0;min-width:800px;}
+        ul,li{margin:0;padding:0;text-decoration:none;}
+        .contain{width:98%;height:100%;margin:0 auto;}
+        .logo{width:100%;height:30px;margin-top:5px;}
+        .logo .img{width:105px;height:32px;float:right;}
+        .logo .img img{width:100%;height:100%;}
+        .header{width:730px;height:33px;margin:0 auto;}
+
+        .xuanxian_title{width:auto;height:30px;margin-top:5px;}
+        .xuanxian_title .conn{
+            width:139px;height:100%;float:left;
+            margin-right:8px;box-sizing: border-box;
+        }
+        .xuanxian_title .active{border-bottom:4px solid #003a73;}
+        .xuanxian_title .conn img{width:100%;}
+
+        #map{width:100%;height:600px;border:1px solid #6b6b6b;box-sizing:border-box;}
+        /*去掉百度的版权标志*/
+        .BMap_cpyCtrl{
+            display:none;
+        }
+        .anchorBL{
+            display:none;
+        }
+
+        .bottom{width:98%;height:120px;position:absolute;bottom:0;left:0;right:0;margin:auto;text-align:center;min-width:800px;}
+        .bottom .guoqi{width:100%;height:70px;margin-top:20px;}
+        .bottom .guoqi .left,.bottom .guoqi .right{width:368px;height:100%;float:left;}
+        .bottom .guoqi .right{float:right;}
+        .guoqi .left ul,.guoqi .right ul{width:67px;height:100%;float:left;margin-right:8px;list-style:none;}
+        .guoqi .left ul li:first-child,.guoqi .right ul li:first-child{width:100%;height:45px;position:relative;}
+        .guoqi .left ul li,.guoqi .right ul li{font-size:10px;}
+        .guoqi .left ul li img,.guoqi .right ul li img{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;}
+
+        .tree{width:173px;height:100px;position:absolute;left:1%;top:104px;color:#fff;background:rgba(10,91,167,0.7);}
+        .tree .yiji{width:100%;height:100%;}
+        .yiji .erji{width:100%;height:auto;}
+        .yiji .erji li{
+            width:100%;height:40px;padding-left:10px;box-sizing:border-box;
+            line-height:40px;font-size:18px;
+        }
+        .yiji .erji .active{background:#ffb933;color:#000;}
+        .yiji .erji .erjicon:hover{background:#ffb933;color:#000;}
+        .yiji .sanji{display:none;}
+        .yiji .sanji li{padding-left:34px;}
+        .yiji .sanji li:hover{background:#003a73;}
+        .yiji .sanji li a{text-decoration:none;color:#fff;}
+    </style>
+</head>
+<body>
+   <div class="contain">
+       <!--头部-->
+       <div class="logo">
+         <div class="img"><img src="img/logo.png" alt=""></div>
+       </div>
+       <div class="header"><img src="img/title.png" alt=""></div>
+       <div class="xuanxian_title">
+           <div class="conn active"><img src="img/Domestic-area.png" alt=""></div>
+           <div class="conn"><img src="img/Foreign-area.png" alt=""></div>
+       </div>
+       <!--地图-->
+       <div id="map"></div>
+       <!--树-->
+       <div class="tree">
+           <div class="yiji yiji1">
+               <div class="erji">
+                   <li class="erjicon active">Shanghai</li>
+                   <ul class="sanji">
+                       <li><a href="http://123.207.219.175:8092/example/index.jsp">NB</a></li>
+                       <li><a href="http://123.207.219.175:8411/index">指令生成工具</a></li>
+                   </ul>
+                   <li class="erjicon">Ningbo</li>
+                   <ul class="sanji">
+                       <li><a href="http://123.207.219.175:8406/index">替换工具</a></li>
+                   </ul>
+               </div>
+           </div>
+           <div class="yiji yiji2" style="display:none">
+               <div class="erji">
+                   <li class="erjicon active">Philippiness</li>
+                   <ul class="sanji">
+                       <li><a href="http://cloud.yindatech.cc">Auto-Reporting</a></li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+       <!--底部-->
+       <div class="bottom">
+           <div class="guoqi">
+               <div class="left">
+                   <ul>
+                       <li><img src="img/guoqi/1.png" alt=""></li>
+                       <li>China</li>
+                   </ul>
+                   <ul>
+                       <li><img src="img/guoqi/2.png" alt=""></li>
+                       <li>Philippiness</li>
+                   </ul>
+                   <ul>
+                       <li><img src="img/guoqi/3.png" alt=""></li>
+                       <li>Columbia</li>
+                   </ul>
+                   <ul>
+                       <li><img src="img/guoqi/4.png" alt=""></li>
+                       <li>Singapore</li>
+                   </ul>
+                   <ul style="margin-right:0;">
+                       <li><img src="img/guoqi/5.png" alt=""></li>
+                       <li>Thailand</li>
+                   </ul>
+               </div>
+               <div class="right">
+                   <ul>
+                       <li><img src="img/guoqi/1.png" alt=""></li>
+                       <li>China</li>
+                   </ul>
+                   <ul>
+                       <li><img src="img/guoqi/2.png" alt=""></li>
+                       <li>Philippiness</li>
+                   </ul>
+                   <ul>
+                       <li><img src="img/guoqi/3.png" alt=""></li>
+                       <li>Columbia</li>
+                   </ul>
+                   <ul>
+                       <li><img src="img/guoqi/4.png" alt=""></li>
+                       <li>Singapore</li>
+                   </ul>
+                   <ul style="margin-right:0;">
+                       <li><img src="img/guoqi/5.png" alt=""></li>
+                       <li>Thailand</li>
+                   </ul>
+               </div>
+           </div>
+           <div class="copyright" style="font-size:12px;line-height:30px;">上海音达科技实业有限公司版权所有 Copyright@ 2012-2017 All Rights Reserved</div>
+       </div>
+   </div>
+</body>
+<script type="text/javascript">
+    var map = new BMap.Map("map");          // 创建地图实例
+    var point = new BMap.Point(30, 30);  // 创建点坐标
+    map.centerAndZoom(point,2);                 // 初始化地图，设置中心点坐标和地图级别
+    //2s之后移动到新的一个中心点：
+    window.setTimeout(function(){
+            map.panTo(new BMap.Point(40,29));
+    }, 2000);
+    //添加控件：
+    map.addControl(new BMap.ScaleControl());        //比例尺控件(左下)
+    map.addControl(new BMap.OverviewMapControl());   //缩略图(右下角)
+    map.addControl(new BMap.MapTypeControl());      //地图类型(地图，卫星，三纬图的切换)(右上)
+</script>
+</html>
